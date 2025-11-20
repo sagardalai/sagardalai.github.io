@@ -2,45 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sagar Dalai | AI & Robotics for Environmental Monitoring</title>
+  <title>Sagar Dalai – AI & Robotics for Environmental Monitoring</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="Portfolio of Sagar Dalai – PhD researcher at the University of Limerick, working on AI & robotics for environmental monitoring, UAVs, multispectral and hyperspectral imaging.">
+        content="Story-style portfolio of Sagar Dalai – PhD researcher at the University of Limerick using UAVs, AI, multispectral and hyperspectral imaging for environmental monitoring.">
   <style>
     :root {
       --bg: #020617;
-      --bg-alt: #020617;
-      --section-dark: #020617;
-      --section-light: #020617;
-      --card-bg: #020617;
       --text: #f9fafb;
       --muted: #cbd5f5;
       --accent: #facc15;
-      --accent-soft: rgba(250, 204, 21, 0.12);
+      --accent-soft: rgba(250, 204, 21, 0.14);
       --border: #1f2937;
       --max-width: 880px;
       --radius-lg: 18px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                    "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
+      background: radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
       color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      line-height: 1.7;
     }
 
     main {
@@ -48,6 +34,13 @@
       margin: 0 auto;
       padding: 32px 16px 72px;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Intro / hero */
 
     header {
       margin-bottom: 40px;
@@ -64,7 +57,7 @@
       opacity: 0.9;
     }
 
-    .top-label-dot {
+    .top-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
@@ -72,22 +65,22 @@
       box-shadow: 0 0 18px rgba(250, 204, 21, 0.9);
     }
 
-    .title-main {
-      margin-top: 16px;
+    .hero-title {
+      margin-top: 20px;
       font-size: clamp(2.4rem, 5vw, 3.2rem);
       line-height: 1.1;
       font-weight: 700;
       max-width: 780px;
     }
 
-    .title-main span {
-      background: linear-gradient(to right, #facc15, #fde68a, #a3e635);
+    .hero-title span {
+      background: linear-gradient(to right, #facc15, #a3e635);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .subtitle {
+    .hero-subtitle {
       margin-top: 16px;
       max-width: 720px;
       font-size: 15px;
@@ -97,7 +90,7 @@
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       margin-top: 20px;
       font-size: 13px;
     }
@@ -106,7 +99,7 @@
       padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       color: var(--muted);
       display: inline-flex;
       align-items: center;
@@ -133,7 +126,7 @@
       padding: 8px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.96);
       color: var(--muted);
       display: inline-flex;
       align-items: center;
@@ -146,38 +139,53 @@
     .hero-link:hover {
       background: rgba(15, 23, 42, 1);
       transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       border-color: rgba(148, 163, 184, 0.8);
       color: #e5e7eb;
     }
 
-    /* Sections */
+    /* Generic story blocks */
+
     section {
-      margin-top: 48px;
+      margin-top: 40px;
     }
 
-    .section-heading {
-      font-size: 22px;
+    h2 {
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 12px;
-      max-width: 720px;
+      margin-bottom: 10px;
+      max-width: 760px;
     }
 
-    .section-heading span {
+    h2 span {
       background: linear-gradient(to right, #facc15, #a855f7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .section-text {
-      font-size: 15px;
-      color: var(--muted);
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 24px 0 6px;
       max-width: 760px;
     }
 
-    .section-text p + p {
-      margin-top: 10px;
+    p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    p + p {
+      margin-top: 8px;
+    }
+
+    .analogy {
+      font-size: 16px;
+      font-style: italic;
+      margin: 16px 0 4px;
+      max-width: 760px;
     }
 
     .image-row {
@@ -191,8 +199,7 @@
       border-radius: var(--radius-lg);
       border: 1px dashed rgba(148, 163, 184, 0.6);
       background: radial-gradient(circle at top left,
-                 rgba(250, 204, 21, 0.1),
-                 rgba(15, 23, 42, 0.95));
+                  var(--accent-soft), rgba(15, 23, 42, 0.95));
       min-height: 150px;
       font-size: 12px;
       color: var(--muted);
@@ -203,7 +210,6 @@
       padding: 12px;
     }
 
-    /* Highlight block */
     .highlight {
       margin-top: 18px;
       padding: 14px 16px;
@@ -212,65 +218,53 @@
       background: rgba(15, 23, 42, 0.98);
       font-size: 14px;
       color: var(--muted);
+      max-width: 780px;
     }
 
     .highlight strong {
       color: var(--text);
     }
 
-    /* Numbered “reasons / pillars” */
-    .pillars {
-      display: grid;
-      gap: 18px;
-      margin-top: 20px;
+    /* Numbered + reason blocks */
+
+    .numbers {
+      font-size: 40px;
+      font-weight: 800;
+      margin: 16px 0 6px;
+      color: var(--accent);
     }
 
-    .pillar-card {
+    .reason-card {
+      margin-top: 10px;
+      padding: 14px 16px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.96);
-      padding: 14px 16px 13px;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.8);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+      max-width: 780px;
     }
 
-    .pillar-label-row {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .pillar-number {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .pillar-title {
-      font-size: 15px;
+    .reason-title {
+      font-size: 16px;
       font-weight: 600;
+      margin-bottom: 4px;
     }
 
-    .pillar-body {
+    .reason-body {
       font-size: 14px;
       color: var(--muted);
-      margin-top: 4px;
     }
 
-    /* Projects cards */
-    .projects-grid {
-      display: grid;
-      gap: 18px;
-      margin-top: 18px;
-    }
+    /* Projects / cards */
 
     .project-card {
+      margin-top: 18px;
+      padding: 14px 16px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.96);
-      padding: 14px 16px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.85);
+      max-width: 780px;
     }
 
     .project-tagline {
@@ -278,7 +272,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      opacity: 0.8;
+      opacity: 0.9;
       margin-bottom: 6px;
     }
 
@@ -306,17 +300,12 @@
       color: var(--muted);
     }
 
-    .project-meta {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 8px;
+      font-size: 11px;
     }
 
     .project-tag {
@@ -324,16 +313,15 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.98);
-      font-size: 11px;
       color: var(--muted);
     }
 
     .project-link {
-      margin-top: 8px;
-      font-size: 12px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      margin-top: 8px;
+      font-size: 12px;
       padding: 4px 8px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
@@ -341,17 +329,15 @@
       cursor: pointer;
     }
 
-    .project-link:hover {
-      background: rgba(15, 23, 42, 1);
-    }
+    /* Timeline */
 
-    /* Timeline (education / roles) */
     .timeline {
-      margin-top: 20px;
+      margin-top: 18px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       background: rgba(15, 23, 42, 0.96);
       padding: 14px 16px;
+      max-width: 780px;
     }
 
     .timeline-item {
@@ -373,7 +359,7 @@
       font-weight: 600;
     }
 
-    .timeline-dates {
+    .timeline-date {
       font-size: 12px;
       color: var(--muted);
       white-space: nowrap;
@@ -391,23 +377,45 @@
       margin-top: 4px;
     }
 
-    /* Call to action */
+    /* References */
+
+    .references {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    .references h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .references ul {
+      list-style: disc;
+      padding-left: 18px;
+    }
+
+    .references li {
+      margin-bottom: 4px;
+    }
+
+    /* CTA */
+
     .cta {
       margin-top: 32px;
       padding: 16px 16px 14px;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(234, 179, 8, 0.7);
       background: radial-gradient(circle at top left,
-                 rgba(234, 179, 8, 0.18),
-                 rgba(15, 23, 42, 0.96));
-      box-shadow: var(--shadow-soft);
+                  var(--accent-soft), rgba(15, 23, 42, 0.96));
+      box-shadow: var(--shadow);
       font-size: 14px;
       color: var(--muted);
+      max-width: 780px;
     }
 
-    .cta strong {
-      color: var(--text);
-    }
+    .cta strong { color: var(--text); }
 
     .cta-actions {
       display: flex;
@@ -436,7 +444,7 @@
     }
 
     .cta-btn:hover {
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
       transform: translateY(-1px);
     }
 
@@ -453,7 +461,7 @@
     }
 
     @media (max-width: 600px) {
-      .title-main {
+      .hero-title {
         font-size: 2.2rem;
       }
       .timeline-main {
@@ -465,268 +473,294 @@
 </head>
 <body>
 <main>
+
   <!-- HERO / INTRO -->
   <header>
     <div class="top-label">
-      <span class="top-label-dot"></span>
-      <span>AI & Robotics for Environmental Monitoring</span>
+      <span class="top-dot"></span>
+      <span>AI &amp; Robotics for Environmental Monitoring</span>
     </div>
 
-    <h1 class="title-main">
-      Using <span>UAVs, AI and remote sensing</span> to understand and protect our waters and coasts.
+    <h1 class="hero-title">
+      <span>Drones, AI and hyperspectral imaging</span> to understand and protect our waters.
     </h1>
 
-    <p class="subtitle">
+    <p class="hero-subtitle">
       I’m <strong>Sagar Dalai</strong>, a PhD researcher at the University of Limerick, Ireland.
-      My work sits at the intersection of drones, multispectral &amp; hyperspectral imaging,
-      machine learning and environmental science — with a focus on harmful algal blooms, water quality,
-      and autonomous environmental monitoring.
+      I use UAVs, multispectral and hyperspectral sensors, and machine learning to monitor
+      water quality, harmful algal blooms and coastal environments in a more autonomous,
+      data-rich way.
     </p>
 
     <div class="hero-meta">
       <div class="hero-chip">
         <span class="hero-chip-dot"></span>
-        <span>PhD | University of Limerick</span>
+        <span>PhD – University of Limerick</span>
       </div>
       <div class="hero-chip">
-        🌍 Coastal &amp; inland waters · Ireland &amp; beyond
+        🌊 Focus: Irish coastal & inland waters
       </div>
       <div class="hero-chip">
-        🤖 AI, robotics, UAVs, remote sensing
+        🤖 Robotics · Remote sensing · ML
       </div>
     </div>
 
     <div class="hero-links">
-      <!-- TODO: replace with your real links -->
-      <a class="hero-link" href="mailto:your.email@example.com">
-        <span>✉️</span> <span>Email</span>
+      <!-- TODO: put your real contact links here -->
+      <a class="hero-link" href="mailto:YOUR_EMAIL@example.com">
+        <span>✉️</span><span>Email</span>
       </a>
       <a class="hero-link" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noreferrer">
-        <span>🐙</span> <span>GitHub</span>
+        <span>🐙</span><span>GitHub</span>
       </a>
       <a class="hero-link" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer">
-        <span>🔗</span> <span>LinkedIn</span>
+        <span>🔗</span><span>LinkedIn</span>
       </a>
     </div>
   </header>
 
-  <!-- PROBLEM / MOTIVATION -->
+  <!-- PROBLEM SECTION -->
   <section>
-    <h2 class="section-heading">
-      Monitoring our waters shouldn’t depend on slow, expensive field campaigns.
-    </h2>
+    <h2><span>Environmental monitoring still misses a lot of what matters.</span></h2>
 
-    <div class="section-text">
-      <p>
-        Environmental monitoring is often limited by boat time, manual sampling and scattered data.
-        Harmful algal blooms can appear and disappear quickly, coastal ecosystems are dynamic,
-        and traditional surveys are not always frequent or detailed enough to capture what is happening.
-      </p>
-      <p>
-        At the same time, we now have powerful UAV platforms, compact multispectral and hyperspectral
-        sensors, and enough compute power at the edge to process data in real time. The challenge is
-        turning all of this into <strong>reliable, automated systems</strong> that scientists, engineers
-        and policymakers can trust.
-      </p>
-    </div>
+    <p>
+      Monitoring water quality and coastal ecosystems is often slow, expensive and patchy.
+      Boat campaigns and discrete sampling days can’t always follow fast processes like
+      harmful algal blooms, changing turbidity, or rapid ecosystem changes along the coast.
+    </p>
+    <p>
+      At the same time, we have access to UAVs, compact multispectral and hyperspectral cameras,
+      and enough compute to process data almost in real time. The problem is not the hardware:
+      it’s turning that hardware into <strong>reliable, automated monitoring systems</strong>
+      that scientists and practitioners can trust.
+    </p>
+
+    <p class="analogy">
+      Het is alsof je het weer van een jaar probeert te begrijpen met slechts tien foto’s
+      van de lucht.
+    </p>
+
+    <p>
+      We need dense observations in space and time, not isolated snapshots.
+    </p>
 
     <div class="image-row">
       <div class="image-placeholder">
-        UAV surveys over Irish coastal waters<br>
-        (replace with your own image)
+        Placeholder – UAV survey over Irish waters<br>
+        (replace with your own orthomosaic / UAV photo)
       </div>
       <div class="image-placeholder">
-        Multispectral / hyperspectral imagery examples<br>
-        (replace with your own image)
+        Placeholder – false-colour multispectral / hyperspectral image<br>
+        (replace with real data visualisation)
       </div>
     </div>
 
     <div class="highlight">
-      <strong>My research goal:</strong> build end-to-end frameworks that use UAVs, AI and
-      advanced imaging to map and monitor water quality and coastal environments, in a way
-      that is <strong>repeatable, scalable and explainable</strong>.
+      <strong>My research goal:</strong> build end-to-end UAV-based pipelines that turn
+      raw spectral data into robust maps and indicators of water quality and ecosystem state,
+      in a way that is <strong>repeatable, scalable and interpretable</strong>.
     </div>
   </section>
 
-  <!-- HOW I APPROACH IT / PILLARS -->
+  <!-- CONSEQUENCES -->
   <section>
-    <h2 class="section-heading">
-      I work across the full pipeline — from raw data to ecological insights.
-    </h2>
+    <h2>When monitoring is fragmented, <span>we miss important changes.</span></h2>
 
-    <div class="pillars">
-      <article class="pillar-card">
-        <div class="pillar-label-row">
-          <div class="pillar-number">1</div>
-          <div>
-            <div class="pillar-title">Smart data collection with UAVs &amp; robotics</div>
-          </div>
-        </div>
-        <div class="pillar-body">
-          I design and use UAV workflows (e.g. DJI platforms, custom payloads) for coastal
-          and agricultural monitoring, combining RGB, multispectral and hyperspectral sensors.
-          This includes flight planning, radiometric calibration and integrating
-          onboard compute for autonomous missions.
-        </div>
-      </article>
-
-      <article class="pillar-card">
-        <div class="pillar-label-row">
-          <div class="pillar-number">2</div>
-          <div>
-            <div class="pillar-title">Advanced image &amp; signal processing</div>
-          </div>
-        </div>
-        <div class="pillar-body">
-          My work uses tools like Agisoft Metashape, ENVI and custom Python pipelines
-          to turn raw imagery into orthomosaics, point clouds and spectral products.
-          I explore techniques such as index-based analysis, clustering and 3D reconstruction
-          to derive biophysical parameters and water quality indicators.
-        </div>
-      </article>
-
-      <article class="pillar-card">
-        <div class="pillar-label-row">
-          <div class="pillar-number">3</div>
-          <div>
-            <div class="pillar-title">Deep learning &amp; novel architectures</div>
-          </div>
-        </div>
-        <div class="pillar-body">
-          I experiment with modern ML architectures for hyperspectral data, such as
-          lightweight Vision Transformers and capsule networks
-          (e.g. <strong>TinyCapsViT for HSI classification</strong>), as well as
-          active learning and reinforcement learning strategies to reduce annotation cost.
-        </div>
-      </article>
-
-      <article class="pillar-card">
-        <div class="pillar-label-row">
-          <div class="pillar-number">4</div>
-          <div>
-            <div class="pillar-title">Robust, controllable UAV behaviour</div>
-          </div>
-        </div>
-        <div class="pillar-body">
-          Beyond perception, I also work on UAV control and autonomy — for example,
-          <strong>discrete-time PID control with online gain adaptation</strong> for stable path following,
-          and planning frameworks for multi-drone search and rescue in forests.
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section>
-    <h2 class="section-heading">
-      Selected projects and research directions.
-    </h2>
-
-    <p class="section-text">
-      Below is a sample of the work I’ve been involved in — from hyperspectral
-      image analysis to drone control and multi-robot systems.
+    <p>
+      If we rely only on occasional field campaigns or coarse satellite products, we risk:
     </p>
 
-    <div class="projects-grid">
+    <p>
+      • Detecting harmful algal blooms too late, when they already impact aquaculture
+      or tourism.<br>
+      • Underestimating small-scale variability near coasts, estuaries and rivers.<br>
+      • Lacking high-quality ground truth to validate satellite missions and models.
+    </p>
 
-      <article class="project-card">
-        <div class="project-tagline">Coastal &amp; water quality monitoring</div>
-        <div class="project-title-row">
-          <h3 class="project-title">Autonomous mapping of Irish coastal waters</h3>
-          <span class="project-year">Ongoing</span>
-        </div>
-        <div class="project-body">
-          A framework to map Irish waters using multispectral, hyperspectral and satellite data,
-          with a focus on removing clouds and water vapour, and generating clean, analyzable products
-          for harmful algal bloom and water quality studies.
-        </div>
-        <div class="project-meta">
-          Role: PhD lead · Tools: UAVs, Agisoft, ENVI, Python, ML workflows
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Hyperspectral</span>
-          <span class="project-tag">Multispectral</span>
-          <span class="project-tag">Water quality</span>
-          <span class="project-tag">Remote sensing</span>
-        </div>
-      </article>
+    <p>
+      My work combines <strong>UAVs</strong>, <strong>spectral sensors</strong> and
+      <strong>machine learning</strong> to fill this gap at local scales, and to support
+      better use of satellite data at regional scales.
+    </p>
+  </section>
 
-      <article class="project-card">
-        <div class="project-tagline">Hyperspectral image analysis</div>
-        <div class="project-title-row">
-          <h3 class="project-title">TinyCapsViT for HSI classification</h3>
-          <span class="project-year">Research</span>
-        </div>
-        <div class="project-body">
-          A lightweight Capsule-Vision Transformer architecture designed for hyperspectral
-          image classification, aiming to balance accuracy, parameter efficiency and the
-          ability to capture spectral–spatial relationships in environmental datasets.
-        </div>
-        <div class="project-meta">
-          Focus: model design, ablations, evaluation on benchmark HSI datasets.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Vision Transformer</span>
-          <span class="project-tag">Capsule networks</span>
-          <span class="project-tag">HSI classification</span>
-          <span class="project-tag">Tiny models</span>
-        </div>
-      </article>
+  <!-- PIPELINE / APPROACH -->
+  <section>
+    <h2><span>I work across the whole pipeline – from raw data to maps and insights.</span></h2>
 
-      <article class="project-card">
-        <div class="project-tagline">UAV control &amp; autonomy</div>
-        <div class="project-title-row">
-          <h3 class="project-title">
-            Discrete-time PID control with online gain adaptation
-          </h3>
-          <span class="project-year">Conference work</span>
-        </div>
-        <div class="project-body">
-          A path-following controller for UAVs (e.g. DJI M100 with Intel RealSense sensors),
-          leveraging discrete-time PID with a smooth online gain adaptation mechanism to improve
-          tracking stability and reduce overshoot in real flight experiments.
-        </div>
-        <div class="project-meta">
-          Application: autonomous UAV navigation for environmental data collection.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">UAV control</span>
-          <span class="project-tag">PID</span>
-          <span class="project-tag">Embedded systems</span>
-        </div>
-      </article>
+    <h3>1. Smart data collection with UAVs</h3>
+    <p>
+      I plan and execute UAV missions for water and coastal monitoring, using platforms
+      like DJI Mavic 3 Multispectral and custom payload setups. This includes flight
+      planning, radiometric calibration and integration with onboard compute when needed.
+    </p>
 
-      <article class="project-card">
-        <div class="project-tagline">Multi-robot systems</div>
-        <div class="project-title-row">
-          <h3 class="project-title">
-            Swarm drone framework for forest search &amp; rescue
-          </h3>
-          <span class="project-year">Proposal</span>
-        </div>
-        <div class="project-body">
-          A proposed swarm framework using platforms like the DJI M300 equipped with LiDAR
-          and thermal cameras, focusing on search strategies, path planning, SLAM and robust
-          communication in dense forest environments for search and rescue operations.
-        </div>
-        <div class="project-meta">
-          Centralised coordination, challenging visibility conditions, real-time sensing.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">Swarm drones</span>
-          <span class="project-tag">SLAM</span>
-          <span class="project-tag">Thermal imaging</span>
-        </div>
-      </article>
+    <div class="image-row">
+      <div class="image-placeholder">
+        UAV mission planning screenshot<br>
+        (replace with QGIS / mission planner image)
+      </div>
+      <div class="image-placeholder">
+        DJI multispectral / Agrowing lens setup<br>
+        (replace with your sensor photo)
+      </div>
+    </div>
 
+    <h3>2. From images to spectral products</h3>
+    <p>
+      I use tools such as Agisoft Metashape, ENVI and custom Python pipelines to create
+      orthomosaics, dense point clouds, and spectral cubes from UAV data. I work with:
+    </p>
+    <p>
+      • Multispectral sensors (e.g. Agrowing Sextuple with Sony A7R).<br>
+      • Hyperspectral sensors (e.g. Resonon Pika-L, VNIR range).<br>
+      • Indices and spectral features tailored to water quality and vegetation.
+    </p>
+
+    <h3>3. Machine learning on multispectral & hyperspectral data</h3>
+    <p>
+      I explore and develop models for hyperspectral image classification, including:
+    </p>
+    <p>
+      • Lightweight Vision Transformers with spectral attention.<br>
+      • Capsule-based architectures (<strong>TinyCapsViT</strong>) for spectral–spatial
+        relationships.<br>
+      • Active learning / RL-based data selection to reduce labelling effort.
+    </p>
+
+    <h3>4. Autonomous UAV behaviour & control</h3>
+    <p>
+      Reliable monitoring requires stable, predictable UAV trajectories. I work on
+      <strong>discrete-time PID control with online gain adaptation</strong> for smooth
+      path following, validated on platforms like the DJI M100 with Intel RealSense
+      D435i and T265 for perception.
+    </p>
+  </section>
+
+  <!-- “THIS NEW WAY WORKS” – PROJECT CARDS LIKE THE 1/2/3/4 PART -->
+  <section>
+    <h2>This approach is already leading to <span>concrete frameworks and ideas.</span></h2>
+
+    <div class="numbers">1</div>
+    <div class="reason-card">
+      <div class="reason-title">Autonomous mapping of Irish waters</div>
+      <div class="reason-body">
+        A framework to fuse multispectral, hyperspectral and satellite data for
+        mapping Irish waters, with explicit cloud and water-vapour removal and the
+        aim of producing clean, reusable time series for water quality and HAB studies.
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tagline">Coastal &amp; water quality monitoring</div>
+      <div class="project-title-row">
+        <div class="project-title">Autonomous mapping of Irish coastal waters</div>
+        <div class="project-year">Ongoing</div>
+      </div>
+      <div class="project-body">
+        Building an autonomous pipeline: from UAV raw data and satellite imagery
+        to cloud-free, atmosphere-corrected products and classification maps useful
+        for ecologists and decision-makers.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">UAV</span>
+        <span class="project-tag">Hyperspectral</span>
+        <span class="project-tag">Water quality</span>
+      </div>
+    </div>
+
+    <div class="numbers">2</div>
+    <div class="reason-card">
+      <div class="reason-title">Tiny models for rich spectral data</div>
+      <div class="reason-body">
+        With <strong>TinyCapsViT</strong> and related architectures I explore how to
+        keep models small and efficient while still capturing the high-dimensional,
+        highly correlated nature of hyperspectral data.
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tagline">Hyperspectral image analysis</div>
+      <div class="project-title-row">
+        <div class="project-title">TinyCapsViT for HSI classification</div>
+        <div class="project-year">Research</div>
+      </div>
+      <div class="project-body">
+        A compact Capsule-Vision Transformer tailored to hyperspectral image classification,
+        targeting better trade-offs between accuracy, parameters and generalisation to
+        new environments.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Vision Transformer</span>
+        <span class="project-tag">Capsule networks</span>
+        <span class="project-tag">HSI</span>
+      </div>
+    </div>
+
+    <div class="numbers">3</div>
+    <div class="reason-card">
+      <div class="reason-title">Stable control for data-centric missions</div>
+      <div class="reason-body">
+        Smooth, predictable UAV motion is crucial for high-quality spectral and
+        point-cloud products. My work on discrete-time PID with online gain adaptation
+        improves tracking performance in real flights.
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tagline">UAV control &amp; autonomy</div>
+      <div class="project-title-row">
+        <div class="project-title">
+          Discrete-time PID control with online gain adaptation
+        </div>
+        <div class="project-year">Conference work</div>
+      </div>
+      <div class="project-body">
+        A controller tested on a DJI M100 platform with RealSense sensors, aiming
+        for stable path-following in the presence of disturbances, for environmental
+        surveying missions.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">UAV control</span>
+        <span class="project-tag">Path following</span>
+        <span class="project-tag">Embedded</span>
+      </div>
+    </div>
+
+    <div class="numbers">4</div>
+    <div class="reason-card">
+      <div class="reason-title">Ideas for multi-drone systems in complex terrain</div>
+      <div class="reason-body">
+        I’m exploring swarm-drone concepts for forest search &amp; rescue, using
+        LiDAR, thermal cameras and SLAM to plan paths and coordinate between drones
+        in dense, cluttered environments.
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tagline">Multi-robot systems</div>
+      <div class="project-title-row">
+        <div class="project-title">
+          Swarm drone framework for forest search &amp; rescue
+        </div>
+        <div class="project-year">Proposal</div>
+      </div>
+      <div class="project-body">
+        Concept for a DJI M300-based swarm using LiDAR, thermal imaging and
+        centralised coordination, focusing on search strategies, path planning
+        and robust communication in forest environments.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Swarm drones</span>
+        <span class="project-tag">SLAM</span>
+        <span class="project-tag">Search &amp; rescue</span>
+      </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE / EDUCATION -->
+  <!-- PATH / TIMELINE -->
   <section>
-    <h2 class="section-heading">
-      My path so far.
-    </h2>
+    <h2><span>How I got here.</span></h2>
 
     <div class="timeline">
       <div class="timeline-item">
@@ -734,70 +768,80 @@
           <div class="timeline-role">
             PhD Researcher – AI &amp; Robotics for Environmental Monitoring
           </div>
-          <div class="timeline-dates">
+          <div class="timeline-date">
             University of Limerick · Ireland
           </div>
         </div>
         <div class="timeline-org">
-          Working on UAV-based sensing, hyperspectral image analysis, and autonomous
-          frameworks for monitoring Irish waters and coastal ecosystems.
+          Combining UAVs, spectral imaging, machine learning and control to
+          build autonomous environmental monitoring frameworks.
         </div>
         <div class="timeline-desc">
-          Combining robotics, control, computer vision and remote sensing with ecological questions.
+          Focus on Irish waters, harmful algal blooms, water-quality mapping and
+          data fusion between UAV and satellite observations.
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-main">
-          <div class="timeline-role">B.Tech – First batch</div>
-          <div class="timeline-dates">2008 – 2012</div>
+          <div class="timeline-role">
+            B.Tech – First batch
+          </div>
+          <div class="timeline-date">
+            2008 – 2012
+          </div>
         </div>
         <div class="timeline-org">
           Vignan Institute of Technology and Management
         </div>
         <div class="timeline-desc">
-          Completed B.Tech as part of the institute’s first batch; this period also sparked
-          my interest in programming and embedded systems (after some extra C classes!).
+          Studied engineering as part of the institute’s first batch. An early
+          struggle with C programming led to extra classes — and eventually to a
+          strong foundation in coding and problem-solving.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CALL TO ACTION -->
-  <section>
-    <h2 class="section-heading">
-      Interested in collaborating or using these tools in your project?
-    </h2>
+  <!-- REFERENCES / RESOURCES (OPTIONAL, LIKE THE ORIGINAL PAGE) -->
+  <section class="references">
+    <h3>Selected themes &amp; references I draw on</h3>
+    <ul>
+      <li>Deep learning for hyperspectral and multispectral image analysis.</li>
+      <li>UAV photogrammetry and radiometric calibration.</li>
+      <li>Water quality and harmful algal bloom monitoring using remote sensing.</li>
+      <li>Control and planning for autonomous UAVs and multi-robot systems.</li>
+    </ul>
+  </section>
 
+  <!-- CTA -->
+  <section>
     <div class="cta">
       <p>
-        <strong>I collaborate with researchers, agencies and practitioners</strong> who want
-        to bring UAVs, AI and advanced imaging into real environmental workflows —
-        from monitoring harmful algal blooms to mapping coastal habitats or agricultural fields.
+        <strong>Do you work on aquatic environments, remote sensing or robotics?</strong>
+        I’m interested in collaborations where UAVs, spectral imaging and AI can help
+        answer real environmental questions — from mapping mussel beds and oysters
+        to tracking algal blooms and coastal change.
       </p>
       <p style="margin-top:8px;">
-        If you’re working on related problems or you’re curious about how these methods
-        might fit your use case, I’m happy to chat.
+        If you’re curious about using these tools in your project, or want to
+        discuss data, algorithms or practical UAV workflows, feel free to reach out.
       </p>
 
       <div class="cta-actions">
-        <a class="cta-btn" href="mailto:your.email@example.com">
-          <span>✉️</span> <span>Get in touch</span>
+        <a class="cta-btn" href="mailto:YOUR_EMAIL@example.com">
+          <span>✉️</span><span>Get in touch</span>
         </a>
         <a class="cta-btn secondary" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noreferrer">
-          <span>🐙</span> <span>View code &amp; experiments on GitHub</span>
+          <span>🐙</span><span>See code &amp; experiments on GitHub</span>
         </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <div>
-      &copy; <span id="year"></span> Sagar Dalai · Built for GitHub Pages.
-    </div>
-    <div>
-      Based in Ireland · AI &amp; Robotics · Environmental monitoring
-    </div>
+    <div>&copy; <span id="year"></span> Sagar Dalai – Built for GitHub Pages.</div>
+    <div>Based in Ireland · AI &amp; Robotics · Environmental Monitoring</div>
   </footer>
 </main>
 
