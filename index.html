@@ -24,15 +24,52 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
                    "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
       color: var(--text);
       line-height: 1.7;
+      /* subtle overall fade-in */
+      opacity: 0;
+      animation: bodyFade 0.9s ease-out forwards;
+    }
+
+    @keyframes bodyFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
     main {
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 32px 16px 72px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* soft animated background blob */
+    main::before {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: 80px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center,
+                 rgba(250, 204, 21, 0.18),
+                 rgba(15, 23, 42, 0));
+      opacity: 0.7;
+      pointer-events: none;
+      filter: blur(1px);
+      animation: blobDrift 18s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes blobDrift {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      50%  { transform: translate3d(-40px, 20px, 0) scale(1.08); }
+      100% { transform: translate3d(-20px, -30px, 0) scale(0.97); }
     }
 
     a {
@@ -40,7 +77,20 @@
       text-decoration: none;
     }
 
-    /* Intro / hero */
+    /* Reveal-on-scroll base */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     header {
       margin-bottom: 40px;
@@ -63,6 +113,13 @@
       border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 18px rgba(250, 204, 21, 0.9);
+      animation: pulseDot 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      0%   { transform: scale(1); box-shadow: 0 0 16px rgba(250, 204, 21, 0.9); }
+      50%  { transform: scale(1.2); box-shadow: 0 0 26px rgba(250, 204, 21, 1); }
+      100% { transform: scale(1); box-shadow: 0 0 16px rgba(250, 204, 21, 0.9); }
     }
 
     .hero-title {
@@ -132,13 +189,16 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      transition: background 0.18s ease, transform 0.18s ease,
-                  box-shadow 0.18s ease, border-color 0.18s ease;
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
     }
 
     .hero-link:hover {
       background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
+      transform: translateY(-1px) translateZ(0);
       box-shadow: var(--shadow);
       border-color: rgba(148, 163, 184, 0.8);
       color: #e5e7eb;
@@ -435,6 +495,7 @@
       gap: 6px;
       cursor: pointer;
       color: var(--text);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .cta-btn.secondary {
@@ -475,7 +536,7 @@
 <main>
 
   <!-- HERO / INTRO -->
-  <header>
+  <header class="reveal">
     <div class="top-label">
       <span class="top-dot"></span>
       <span>AI &amp; Robotics for Environmental Monitoring</span>
@@ -498,7 +559,7 @@
         <span>PhD – University of Limerick</span>
       </div>
       <div class="hero-chip">
-        🌊 Focus: Irish coastal & inland waters
+        🌊 Focus: Irish coastal &amp; inland waters
       </div>
       <div class="hero-chip">
         🤖 Robotics · Remote sensing · ML
@@ -516,11 +577,15 @@
       <a class="hero-link" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer">
         <span>🔗</span><span>LinkedIn</span>
       </a>
+      <a class="hero-link" href="https://scholar.google.com/citations?user=Q8BnuRUAAAAJ&hl=en"
+         target="_blank" rel="noreferrer">
+        <span>📚</span><span>Google Scholar</span>
+      </a>
     </div>
   </header>
 
   <!-- PROBLEM SECTION -->
-  <section>
+  <section class="reveal">
     <h2><span>Environmental monitoring still misses a lot of what matters.</span></h2>
 
     <p>
@@ -563,7 +628,7 @@
   </section>
 
   <!-- CONSEQUENCES -->
-  <section>
+  <section class="reveal">
     <h2>When monitoring is fragmented, <span>we miss important changes.</span></h2>
 
     <p>
@@ -585,7 +650,7 @@
   </section>
 
   <!-- PIPELINE / APPROACH -->
-  <section>
+  <section class="reveal">
     <h2><span>I work across the whole pipeline – from raw data to maps and insights.</span></h2>
 
     <h3>1. Smart data collection with UAVs</h3>
@@ -617,7 +682,7 @@
       • Indices and spectral features tailored to water quality and vegetation.
     </p>
 
-    <h3>3. Machine learning on multispectral & hyperspectral data</h3>
+    <h3>3. Machine learning on multispectral &amp; hyperspectral data</h3>
     <p>
       I explore and develop models for hyperspectral image classification, including:
     </p>
@@ -628,7 +693,7 @@
       • Active learning / RL-based data selection to reduce labelling effort.
     </p>
 
-    <h3>4. Autonomous UAV behaviour & control</h3>
+    <h3>4. Autonomous UAV behaviour &amp; control</h3>
     <p>
       Reliable monitoring requires stable, predictable UAV trajectories. I work on
       <strong>discrete-time PID control with online gain adaptation</strong> for smooth
@@ -637,8 +702,8 @@
     </p>
   </section>
 
-  <!-- “THIS NEW WAY WORKS” – PROJECT CARDS LIKE THE 1/2/3/4 PART -->
-  <section>
+  <!-- “THIS NEW WAY WORKS” – PROJECT CARDS -->
+  <section class="reveal">
     <h2>This approach is already leading to <span>concrete frameworks and ideas.</span></h2>
 
     <div class="numbers">1</div>
@@ -759,7 +824,7 @@
   </section>
 
   <!-- PATH / TIMELINE -->
-  <section>
+  <section class="reveal">
     <h2><span>How I got here.</span></h2>
 
     <div class="timeline">
@@ -803,19 +868,24 @@
     </div>
   </section>
 
-  <!-- REFERENCES / RESOURCES (OPTIONAL, LIKE THE ORIGINAL PAGE) -->
-  <section class="references">
+  <!-- REFERENCES / RESOURCES -->
+  <section class="references reveal">
     <h3>Selected themes &amp; references I draw on</h3>
     <ul>
       <li>Deep learning for hyperspectral and multispectral image analysis.</li>
-      <li>UAV photogrammetry and radiometric calibration.</li>
-      <li>Water quality and harmful algal bloom monitoring using remote sensing.</li>
+      <li>UAV photogrammetry, radiometric calibration and water quality mapping.</li>
+      <li>Remote sensing of harmful algal blooms and coastal environments.</li>
       <li>Control and planning for autonomous UAVs and multi-robot systems.</li>
+      <li>
+        See my publications on
+        <a href="https://scholar.google.com/citations?user=Q8BnuRUAAAAJ&hl=en"
+           target="_blank" rel="noreferrer">Google Scholar</a>.
+      </li>
     </ul>
   </section>
 
   <!-- CTA -->
-  <section>
+  <section class="reveal">
     <div class="cta">
       <p>
         <strong>Do you work on aquatic environments, remote sensing or robotics?</strong>
@@ -839,14 +909,29 @@
     </div>
   </section>
 
-  <footer>
+  <footer class="reveal">
     <div>&copy; <span id="year"></span> Sagar Dalai – Built for GitHub Pages.</div>
     <div>Based in Ireland · AI &amp; Robotics · Environmental Monitoring</div>
   </footer>
 </main>
 
 <script>
+  // year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // simple intersection observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
